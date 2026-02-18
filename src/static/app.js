@@ -25,6 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <div class="participants-section">
+            <p class="participants-heading"><strong>Participants:</strong></p>
+            ${
+              details.participants.length
+                ? `<ul class="participants-list">
+                    ${details.participants
+                      .map((p) => `<li>${p}</li>`)
+                      .join("")}
+                  </ul>`
+                : '<p class="no-participants">None yet</p>'
+            }
+          </div>
         `;
 
         activitiesList.appendChild(activityCard);
